@@ -55,6 +55,14 @@ def copytoclip():
     copy_button.config(text="Copied!")
     root.after(1500, lambda: copy_button.config(text="Copy to Clipboard"))
 
+def pastetoinput():
+    input_text.set(pyperclip.paste())
+    paste_button.config(text="Pasted!")
+    root.after(1500, lambda: paste_button.config(text="Paste from Clipboard"))
+
+paste_button = tk.Button(root, text="Paste from Clipboard", command=pastetoinput)
+paste_button.pack(**DEFAULT_PADDING)
+
 copy_button = tk.Button(root, text="Copy to Clipboard", command=copytoclip)
 copy_button.pack(**DEFAULT_PADDING)
 
